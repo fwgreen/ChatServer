@@ -19,7 +19,7 @@ class Message {
         <div class="col-xs-6">
           <h1>Messages</h1>
           <ul class="list-group">
-            <li class="list-group-item" *ng-for="#message of messages">
+            <li class="list-group-item" *ngFor="#message of messages">
               <h4 class="list-group-item-heading">{{split_message(message)[0]}}</h4>
               <p class="list-group-item-text">{{split_message(message)[1]}}</p>
             </li>
@@ -32,7 +32,7 @@ class Message {
             <input #name class="form-control" placeholder="enter your name">
           </fieldset>
           <fieldset class="form-group">
-            <textarea [(ng-model)]="message" class="form-control" name="comment" form="commentform" placeholder="send a message"></textarea>
+            <textarea [(ngModel)]="message" class="form-control" name="comment" form="commentform" placeholder="send a message"></textarea>
           </fieldset>
           <button (click)="send_message(name.value)" type="button" class="btn btn-primary">add comment</button>
         </form>

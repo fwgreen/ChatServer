@@ -46,17 +46,12 @@
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
-            <version>2.3</version>
+            <version>2.5</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.j2html</groupId>
-            <artifactId>j2html</artifactId>
-            <version>0.7</version>
+            <version>2.7</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -65,6 +60,6 @@
         </dependency>
     </dependencies>
     <properties>
-        <kotlin.version>1.0.0-beta-2423</kotlin.version>
+        <kotlin.version>1.0.3</kotlin.version>
     </properties>
 </project>
