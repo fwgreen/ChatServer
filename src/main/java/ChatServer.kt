@@ -4,16 +4,17 @@ import org.eclipse.jetty.websocket.api.*
 import org.eclipse.jetty.websocket.api.annotations.*
 import java.util.*
 
-fun toJson(message: String): String =  Gson().toJson(message)
+val Any.json: String
+    get() = Gson().toJson(this)
 
-val sessions: MutableMap<Session, String> = HashMap<Session, String>()
+val sessions = HashMap<Session, String>()
 
 fun create(user: String = "User", text: String): String = "$user: $text"
 
 fun broadcast(message:  String) {
     sessions.keys.filter { s -> s.isOpen }.forEach { s ->
         try {
-            s.remote.sendString(toJson(message))
+            s.remote.sendString(message.json)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -43,7 +44,7 @@ class WebSocketHandler {
 
 fun main(args: Array<String>) {
 
-    staticFileLocation("/public")
+    staticFiles.location("/public")
 
     webSocket("/chat", WebSocketHandler::class.java)
 

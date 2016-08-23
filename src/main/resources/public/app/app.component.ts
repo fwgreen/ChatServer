@@ -1,5 +1,4 @@
-import {Component, bootstrap, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
-import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {Component} from '@angular/core';
 
 class Message {
   user: string;
@@ -11,8 +10,7 @@ class Message {
 }
 
 @Component({
-  selector: 'myapp',
-  providers: [HTTP_PROVIDERS],
+  selector: 'my-app',
   template: `
     <div class="container">
       <div class="row">
@@ -39,17 +37,16 @@ class Message {
       </div>
     </div>
   </div>
-`,
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
+`
 })
 
-class AppComponent {
+export class AppComponent {
 
   messages: Array<string> = [];
   message: string;
   ws: WebSocket;
 
-  constructor(public http: Http) {
+  constructor() {
     const BASE_URL = 'ws://localhost:4567/chat';
     this.ws = new WebSocket(BASE_URL);
 
@@ -67,5 +64,3 @@ class AppComponent {
     this.message = '';
   }
 }
-
-bootstrap(AppComponent);
